@@ -17,13 +17,10 @@ const InputForm = ({member}) => {
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
 
-
-   
     const { id } = useParams();
     const id_as_int = parseInt(id);
     const membersArray = useSelector(state => state.members);
     const thisMember = membersArray.find(m => m._id === id_as_int);
-    // console.log(thisMember);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -41,7 +38,6 @@ const InputForm = ({member}) => {
         const validEmail = emailRegex.exec(email);
         
         if (!firstname || !lastname || !phone || !email) {
-            // alert('ALL FIELDS REQUIRED')
             setAlertMessage('All fields are required.')
             setShowAlert(true);
         } else if (sameEmail && id_as_int !== sameEmail._id) {
@@ -125,14 +121,6 @@ const InputForm = ({member}) => {
 
                 {admin && <input type="radio" name="role" className="radio" defaultChecked onClick={() => setAdmin(true)}/>}
                 {!admin && <input type="radio" name="role" className="radio" onClick={() => setAdmin(true)}/>}
-
-                {/* {!thisMember && <p className="color-gray">Admin - can delete members</p>}
-                {thisMember && thisMember.admin && <p>Admin - can delete members</p>}
-                {thisMember && !thisMember.admin && <p className="color-gray">Admin - can delete members</p>}
-
-                {!thisMember &&  <input type="radio" name="role" value="false" className="radio" onClick={() => setAdmin(true)}/>}
-                {thisMember && thisMember.admin && <input type="radio" name="role" value="false" defaultChecked className="radio" onClick={() => setAdmin(true)}/>}
-                {thisMember && !thisMember.admin && <input type="radio" name="role" value="false" className="radio" onClick={() => setAdmin(true)}/>} */}
             </div>
             
             <br></br>
