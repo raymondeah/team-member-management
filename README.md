@@ -1,7 +1,5 @@
 # Instawork Frontend Take-Home Assignment - Team Member Management
 
-A live demo is available [here](https://extraordinary-souffle-cfc196.netlify.app).
-
 ## To build the project
 
 1. Clone the repository
